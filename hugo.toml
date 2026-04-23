@@ -1,0 +1,92 @@
+baseURL = "https://pangxu.net/"           # 请替换为您的域名
+languageCode = "zh-cn"                     # 默认语言
+title = "渺月构成"                 # 网站标题
+theme = "ananke"                           # 使用的主题名称，可替换
+
+# 默认的网站参数
+[params]
+  description = "在入睡时启动明天"        # 网站描述
+  author = "Pang Xu"                         # 作者
+  # 可在此处添加更多主题定义的参数，请查阅主题文档
+
+# 菜单配置示例
+[[menu.main]]
+  identifier = "about"
+  name = "关于"
+  url = "/about/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "posts"
+  name = "文章"
+  url = "/posts/"
+  weight = 20
+
+# 输出格式
+[mediaTypes]
+  [mediaTypes."text/html"]
+    suffixes = ["html"]
+
+[outputFormats]
+  [outputFormats.HTML]
+    mediaType = "text/html"
+    isPlainText = false
+    isHTML = true
+  [outputFormats.RSS]
+    mediaType = "application/rss+xml"
+    baseName = "index"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML"]
+
+# 分页设置
+[pagination]
+  pagerSize = 10
+
+# 语言设置 (多语言时使用)
+# [languages]
+#   [languages.en]
+#     title = "My Hugo Site"
+#     languageName = "English"
+#     weight = 1
+#   [languages.zh]
+#     title = "我的 Hugo 站点"
+#     languageName = "中文"
+#     weight = 2
+
+# 语法高亮 (使用 Hugo 内置的 Chroma)
+[markup]
+  [markup.highlight]
+    style = "monokai"               # 代码高亮主题
+    lineNos = true                  # 显示行号
+    lineNumbersInTable = false
+    noClasses = false
+
+# 服务设置
+[server]
+  [[server.headers]]
+    for = "/*"
+    [server.headers.values]
+      X-Frame-Options = "DENY"
+      X-Content-Type-Options = "nosniff"
+      Referrer-Policy = "strict-origin-when-cross-origin"
+      Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# 图片处理
+[imaging]
+  quality = 75
+  anchor = "smart"
+  resampleFilter = "box"
+
+# 安全 HTTP 头设置
+[security]
+  [security.exec]
+    allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$', '^yarn$', '^npm$']
+    osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM|HOME|LANG|XDG_.+)$']
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$']
+
+# 时间设置
+[time]
+  location = "Asia/Shanghai"         # 时区，可修改
