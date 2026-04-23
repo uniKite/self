@@ -1,5 +1,4 @@
-# Sample workflow for building and deploying a Hugo site to GitHub Pages
-name: Deploy Hugo site to Pages
+name: Deploy Hugo Site to GitHub Pages
 
 on:
   push:
@@ -13,7 +12,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-inprogress: false
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -31,31 +30,54 @@ jobs:
           hugo-version: '0.131.0'
           extended: true
       
-      - name: Setup theme
+      - name: Debug: Show directory structure
         run: |
-          # 确保themes目录存在
-          mkdir -p themes
-          # 下载Ananke主题
-          git clone --depth 1 --branch master \
-            https://github.com/theNewDynamic/gohugo-theme-ananke.git \
-            themes/ananke
-      
-      - name: Build
-        run: |
-          # 显示当前目录结构
-          echo "Current directory structure:"
+          echo "Current directory:"
           pwd
           ls -la
+          echo "Content directory:"
+          ls -la content/ || echo "No content directory"
           echo "Themes directory:"
-          ls -la themes/
-          echo "Ananke theme contents:"
-          ls -la themes/ananke/
+          ls -la themes/ || echo "No themes directory"
+      
+      - name: Setup Ananke Theme
+        run: |
+          echo "Setting up Ananke theme..."
+          if [ ! -d "themes/ananke" ]; then
+            echo "Cloning Ananke theme..."
+            git clone --depth 1 --branch master \
+              https://github.com/theNewDynamic/gohugo-theme-ananke.git \
+              themes/ananke
+            echo "Theme cloned successfully"
+          else
+            echo "Theme already exists"
+          fi
           
-          # 清理并构建
-          rm -rf public
+          echo "Theme contents:"
+          ls -la themes/ananke/ || echo "Theme directory not accessible"
+      
+      - name: Build with Hugo
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+        run: |
+          echo "Building Hugo site..."
+          echo "Hugo version:"
+          hugo version
+          
+          echo "Checking theme configuration..."
+          if [ -f "hugo.toml" ]; then
+            echo "hugo.toml content:"
+            cat hugo.toml
+          fi
+          
+          echo "Starting Hugo build..."
           hugo \
+            --verbose \
             --minify \
             --baseURL "https://pangxu.net/"
+          
+          echo "Build completed. Public directory contents:"
+          ls -la public/ || echo "No public directory"
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
