@@ -1,7 +1,7 @@
 baseURL = "https://pangxu.net/"           # 请替换为您的域名
 languageCode = "zh-cn"                     # 默认语言
 title = "渺月构成"                 # 网站标题
-# 使用的主题名称，可替换
+theme = "ananke"      # 使用的主题名称，可替换
 
 # 默认的网站参数
 [params]
