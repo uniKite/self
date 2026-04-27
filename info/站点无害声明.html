@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汇鸢简报</title>
+    <!-- 引入GitHub Markdown样式 -->
+    <link rel="stylesheet" href="/static/env/github-markdown-light.min.css">
+    <!-- 引入Marked.js库 -->
+    <script src="/static/env/marked.umd.js"></script>
+    <style>
+        /* 基础样式设置 */
+        body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: auto;
+        }
+        
+        /* 确保只显示Markdown内容 */
+        body > :not(.markdown-body) {
+            display: none;
+        }
+        
+        /* GitHub风格样式调整 */
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Markdown内容容器 -->
+    <div id="content" class="markdown-body"></div>
+    
+    <!-- 嵌入您的Markdown内容 -->
+    <script id="markdown-content" type="text/markdown">
+
+
+
+
+
+
+
+
+
+
+  # 站点无害声明（2025年8月21日）
+
+  1. 本站点不会获取或者保存您的任何数据。您与本站点的一切联系会在您关闭页面的那一刻彻底销毁。（但是您的设备上会留存历史记录和自动填充内容，您可以自行清除）  
+  2. 本站点的内容均已通过人工审核，部分内容通过人工+AI双重审核，确保合规  
+  3. 本站点没有盈利需求，因此不会推送有风险的广告  
+  4. 站长的行为稳定并且可预测，不会乱整活  
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<script>
+    // 页面加载完成后渲染Markdown
+    document.addEventListener('DOMContentLoaded', function() {
+        // 获取Markdown内容
+        const markdownContent = document.getElementById('markdown-content').textContent;
+        // 使用marked.js解析Markdown
+        const htmlContent = marked.parse(markdownContent);
+        // 将解析后的内容插入到容器中
+        document.getElementById('content').innerHTML = htmlContent;
+    });
+</script>
+</body> </html> 
