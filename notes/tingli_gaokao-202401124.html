@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<link rel="shortcut icon" href="res/icon.ico" type="image/x-icon" />
+<body background="res/background.jpg" style="background-repeat:no-repeat; background-attachment:fixed; background-size:cover;"> 
+<meta name="keywords" content="渺月构成">
+<meta name="description" content="在入睡时启动明天">
+<meta name="author" content="PiXel Tulpa">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="60">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渺月构成</title>
+    <!-- 引入GitHub Markdown样式 -->
+    <link rel="stylesheet" href="/env/github-markdown-light.min.css">
+    <!-- 引入Marked.js库 -->
+    <script src="/env/marked.umd.js"></script>
+    <style>
+        /* 基础样式设置 */
+        body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: auto;
+        }
+        /* 确保只显示Markdown内容 */
+        body > :not(.markdown-body) {
+            display: none;
+        }
+        /* GitHub风格样式调整 */
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+        details {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            overflow: hidden;
+        }
+        summary {
+            padding: 12px 15px;
+            cursor: pointer;
+            font-weight: 600;
+            background-color: #f1f8ff;
+            border-bottom: 1px solid transparent;
+            transition: background-color 0.3s;
+        }
+        summary:hover {
+            background-color: #e3f2fd;
+        }
+        details[open] summary {
+            border-bottom-color: #ddd;
+            background-color: #e3f2fd;
+        }
+        .content {
+            padding: 15px;
+            line-height: 1.6;
+        }
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+    </style>
+</head>
+<body>
+    <!-- Markdown内容容器 -->
+    <div id="content" class="markdown-body"></div>
+    <!-- 嵌入您的Markdown内容 -->
+    <script id="markdown-content" type="text/markdown">
+
+
+
+# 听力高考（2024.1.12）
+
+> 来源：时间轴日志-当前-#30  
+> 开始创作时间：2024年1月12日  
+> 最后编辑时间：2024年1月12日
+
+[< 返回](/)
+---
+
+  就在前不久，我们结束了听力高考。这标志着我们已经经历了高考的第一战，也标志着我们离6月份高考的时间不多了。
+
+  在听力高考的前几天，我们加强了英语听力的练习。之前每天晚一练一套题目，在前几天的时候先是每天晚一从一套英语听力变成两套英语听力，然后每天下午的最后一节课（应该是）和英语课开始从原来的内容变成了两套听力题，再后来又增加了去学校的机房使用天学网练习英语听力。
+  去机房需要自带耳机，于是大家都把自己的耳机带来了。几乎所有人带的都是有线耳机，因为学校机房的电脑并不支持蓝牙。但是我因为有蓝牙发射接收器，所以可以带着蓝牙耳机去听英语听力。
+  听力高考之前有一次英语老师说，他在最近的半个月内都精神紧绷，把各大听力出版社（指天学网一类的平台）的题目都找来让大家进行了练习。这也是我们平时听的英语听力的来源。
+
+  听力高考的当天，不在本校的学生被大巴车拉着前往各个考点。整个考试给人的感觉跟合格考差不多，甚至（对于我来说）连考场都和合格考的考场距离不远。
+  听力考试考两场，在两场考试的间隔，我和其他的一些人去上了厕所。这个考场的旁边就是厕所，同时监考老师也很和蔼，所以我们上厕所并没有受到什么阻碍。但是6月份的高考可能就没有这么幸运了。
+
+  这两场英语听力我并没有超常发挥，而是和平时的发挥差不多。每场听力听完之后，我们只有两分钟的时间，将试卷上的答案转涂到答题卡上。本来以为两分钟的时间对于我来讲可能会不够，但是实际上基本够用（指涂完答题卡之后可以再核对1.5遍，但是在这之后不一定有时间去改错）。考完试之后大家都在对答案，但是我因为想不着我的答案了，所以并没有和其他人一样对答案。
+
+  英语听力考试结束之后， 一切如常。只是每天晚自习第1节课（其实那个时候按理来讲还没有到上晚一的时间）的英语听力取消了，变成了各科的答疑解惑时间（这段时间的具体名字忘了）。
+
+  现在的时间是2024年1月12日 20:49，先写到这里，以后想起的事情以后再说。
+
+
+
+
+
+
+
+
+    </script>
+<script>
+    // 页面加载完成后渲染Markdown
+    document.addEventListener('DOMContentLoaded', function() {
+        // 获取Markdown内容
+        const markdownContent = document.getElementById('markdown-content').textContent;
+        // 使用marked.js解析Markdown
+        const htmlContent = marked.parse(markdownContent);
+        // 将解析后的内容插入到容器中
+        document.getElementById('content').innerHTML = htmlContent;
+    });
+</script>
+</body> </html>
