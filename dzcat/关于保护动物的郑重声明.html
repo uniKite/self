@@ -1,3 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!-- 全局不发送 Referer -->
+<meta name="referrer" content="no-referrer">
+<link rel="shortcut icon" href="/res/icon.ico" type="image/x-icon" />
+<body background="/res/background.jpg" style="background-repeat:no-repeat; background-attachment:fixed; background-size:cover;"> 
+<meta name="keywords" content="渺月构成">
+<meta name="description" content="在入睡时启动明天">
+<meta name="author" content="PiXel">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="60">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渺月构成</title>
+    <!-- 引入GitHub Markdown样式 -->
+    <link rel="stylesheet" href="/env/github-markdown-light.min.css">
+    <!-- 引入Marked.js库 -->
+    <script src="/env/marked.umd.js"></script>
+    <style>
+        /* 基础样式设置 */
+        body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: auto;
+        }
+        /* 确保只显示Markdown内容 */
+        body > :not(.markdown-body) {
+            display: none;
+        }
+        /* GitHub风格样式调整 */
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+        details {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            overflow: hidden;
+        }
+        summary {
+            padding: 12px 15px;
+            cursor: pointer;
+            font-weight: 600;
+            background-color: #f1f8ff;
+            border-bottom: 1px solid transparent;
+            transition: background-color 0.3s;
+        }
+        summary:hover {
+            background-color: #e3f2fd;
+        }
+        details[open] summary {
+            border-bottom-color: #ddd;
+            background-color: #e3f2fd;
+        }
+        .content {
+            padding: 15px;
+            line-height: 1.6;
+        }
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+    </style>
+</head>
+<body>
+    <!-- Markdown内容容器 -->
+    <div id="content" class="markdown-body"></div>
+    <!-- 嵌入您的Markdown内容 -->
+    <script id="markdown-content" type="text/markdown">
+
+
+
+
+
+
 # 关于保护动物的郑重声明
 
 我们深信，地球是所有生命的共同家园，人类与动物共享着同一个生态系统，拥有着相互依存、不可分割的紧密联系。每一种动物，无论大小、强弱，都是生态网络中不可或缺的一环，对维持生物多样性与生态平衡至关重要。它们不仅具有其内在的生命价值与生存权利，也为人类社会的文化、精神、科学和经济发展提供了不可替代的宝贵财富。
@@ -18,5 +107,24 @@
 
 保护动物，就是保护我们赖以生存的地球家园，就是守护我们人类的未来。让我们从自身做起，从点滴小事做起，共同为建设一个万物和谐共生的美好世界而努力！
 
-> 声明方：​ 渺月构成  
-> 日期：​ 2026年5月21日
+> 声明方：渺月构成  
+> 日期：2026年5月21日
+
+
+
+
+
+
+    </script>
+<script>
+    // 页面加载完成后渲染Markdown
+    document.addEventListener('DOMContentLoaded', function() {
+        // 获取Markdown内容
+        const markdownContent = document.getElementById('markdown-content').textContent;
+        // 使用marked.js解析Markdown
+        const htmlContent = marked.parse(markdownContent);
+        // 将解析后的内容插入到容器中
+        document.getElementById('content').innerHTML = htmlContent;
+    });
+</script>
+</body> </html>
